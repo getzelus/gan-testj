@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+ <head>
+	<title>Ganister test by Jeremy</title>
+    <meta charset=utf8">
+    <style>
+		#page{
+			margin-left: 2%;
+			margin-top: 2%;
+		}
+		
+		#divData{
+			margin-top: 2%;
+		}
+    </style>
+</head>
+<body>
+
+<div id="page">
+	
+	<h1>Check json format</h1>
+	
+	<button id="buttonGetData">Get data</button>
+	
+	<div id="divData">		
+		The result will be here.
+	</div>
+	
+</div>
+	
+
+
+	
+<script>
+
+var serverAddress = 'http://localhost:8080/datamodel/check';
+
+var divData = document.getElementById('divData');
+var buttonGetData = document.getElementById('buttonGetData');
+buttonGetData.onclick = function(){ getData(); }
+
+function getData(){
+	var ajaxReq = new XMLHttpRequest();
+    ajaxReq.onreadystatechange = function() {
+        if (ajaxReq.readyState == XMLHttpRequest.DONE ) {
+           if (ajaxReq.status == 200) {
+               divData.innerHTML = ajaxReq.responseText;
+           }
+           else if (ajaxReq.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+	
+    ajaxReq.open("GET", serverAddress, true);
+    ajaxReq.send();
+}
+  
+  
+</script>
+
+</body>
+</html>

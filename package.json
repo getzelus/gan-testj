@@ -1,0 +1,16 @@
+{
+  "name": "ganister test",
+  "version": "1.0.0",
+  "description": "compare JSON",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Jeremy Hugot",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^5.1.4",
+    "express": "^4.15.3"
+  }
+}
